@@ -39,5 +39,21 @@ function clickNext() {
 }
 
 function clickPrev() {
+  var imgActive = $('img.active');
+  var imgPrev = imgActive.prev();
+  var circleActive = $('i.active');
+  var circlePrev = circleActive.prev();
+  var isFirst = imgActive.hasClass('first');
+  if (isFirst) {
+    imgActive.removeClass('active');
+    $('img.last').addClass('active');
+    circleActive.removeClass('active');
+    $('i.last').addClass('active');
 
+  } else {
+    imgActive.removeClass('active');
+    imgPrev.addClass('active');
+    circleActive.removeClass('active');
+    circlePrev.addClass('active');
+  }
 }
