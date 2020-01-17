@@ -20,8 +20,16 @@ $(document).ready(
 function clickNext() {
   var imgActive = $('img.active');
   var imgNext = imgActive.next();
-  imgActive.removeClass('active');
-  imgNext.addClass('active');
+  var isLast = imgActive.hasClass('last');
+  if (isLast) {
+    imgActive.removeClass('active');
+    $('img.first').addClass('active');
+
+  } else {
+    imgActive.removeClass('active');
+    imgNext.addClass('active');
+  }
+
 }
 
 function clickPrev() {
